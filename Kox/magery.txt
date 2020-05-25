@@ -1,0 +1,44 @@
+////////////////////////////////////
+//   This macro is designed for   //
+// training magery from 30. It is //
+//  intended for characters with  //
+//        40+ intelligence.       //
+//                                //
+//  Turn on loop and click play!  //
+//                                //
+//      ~~Made by kdivers~~       //
+////////////////////////////////////
+if @injournal 'insufficient mana'
+  clearjournal
+  useskill 'meditation'
+  while mana < maxmana
+  endwhile
+else
+  if skill 'magery' < 30
+    headmsg 'Buy more skill!'
+    stop
+  elseif skill 'magery' < 45
+    cast 'bless'
+    waitfortarget 15000
+    target! 'self'
+    pause 2000
+  elseif skill 'magery' < 55
+    cast 'mana drain'
+    waitfortarget 15000
+    target! 'self'
+    pause 2000
+  elseif skill 'magery' < 75
+    cast 'invisibility'
+    waitfortarget 15000
+    target! 'self'
+    pause 3000
+  elseif skill 'magery' < 100
+    cast 'mana vampire'
+    waitfortarget 15000
+    target! 'self'
+    pause 4000
+  else
+    headmsg 'Magery complete!'
+    stop
+  endif
+endif
